@@ -58,7 +58,7 @@
 
 ## Demo 
 
-Check out our [demo](https://jsfiddle.net/p60t2bs4/).
+Check out our [demo](https://jsfiddle.net/p60t2bs4/2/).
 
 ## Installation
 
@@ -142,6 +142,7 @@ Join our [Discord channel](https://discord.gg/WhX2nG6GTQ) or [open an issue](htt
 
 * [Default toggle](#default-toggle)
 * [Toggle with labels](#toggle-with-labels)
+* [Toggle with custom values](#toggle-with-custom-values)
 * [Toggle with custom styles](#toggle-with-custom-style)
 
 ### Default toggle
@@ -152,36 +153,49 @@ Join our [Discord channel](https://discord.gg/WhX2nG6GTQ) or [open an issue](htt
 />
 ```
 
-[JSFiddle - Example #1](https://jsfiddle.net/p60t2bs4/)
+[JSFiddle - Example #1](https://jsfiddle.net/p60t2bs4/2/)
 
 ### Toggle with labels
 
 ``` vue
 <Toggle
   v-model="value"
+  id="example2"
   on-label="On"
   off-label="Off"
-  id="example2"
 />
 ```
 
-[JSFiddle - Example #2](https://jsfiddle.net/p60t2bs4/)
+[JSFiddle - Example #2](https://jsfiddle.net/p60t2bs4/2/)
 
-### Toggle with custom stylesg
+### Toggle with custom values
 
 ``` vue
 <Toggle
   v-model="value"
+  id="example3"
+  true-value="on"
+  false-value="off"
+/>
+```
+
+[JSFiddle - Example #3](https://jsfiddle.net/p60t2bs4/2/)
+
+### Toggle with custom styles
+
+``` vue
+<Toggle
+  v-model="value"
+  id="example4"
   font-size="15px"
   on-background="#35495e"
-  id="example3"
   :width="80"
   :height="30"
   :speed="500"
 />
 ```
 
-[JSFiddle - Example #3](https://jsfiddle.net/p60t2bs4/)
+[JSFiddle - Example #4](https://jsfiddle.net/p60t2bs4/2/)
 
 ## About Vueform
 
