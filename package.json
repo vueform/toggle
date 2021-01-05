@@ -2,7 +2,7 @@
   "name": "@vueform/toggle",
   "version": "1.0.0",
   "private": false,
-  "description": "Vue 3 toggle component",
+  "description": "Vue 3 toggle component with labels, custom slots and styling options.",
   "license": "MIT",
   "author": "Adam Berecz <adam@vueform.com>",
   "main": "./dist/toggle.js",
