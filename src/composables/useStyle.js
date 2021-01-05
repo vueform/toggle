@@ -2,8 +2,8 @@ import { computed, toRefs } from 'composition-api'
 
 export default function useStyle (props, context, dependencies)
 {
-  const { width, height, speed, offBackground, onBackground, offColor,
-          onColor, fontSize, handleBackground, } = toRefs(props)
+  const { width, height, speed, offBackground, onBackground, offTextColor,
+          onTextColor, fontSize, handleColor, } = toRefs(props)
 
   // ============== COMPUTED ==============
 
@@ -11,9 +11,9 @@ export default function useStyle (props, context, dependencies)
     let cssVars = {
       '--toggle-off-background': offBackground.value,
       '--toggle-on-background': onBackground.value,
-      '--toggle-off-color': offColor.value,
-      '--toggle-on-color': onColor.value,
-      '--toggle-handle-background': handleBackground.value,
+      '--toggle-off-text-color': offTextColor.value,
+      '--toggle-on-text-color': onTextColor.value,
+      '--toggle-handle-color': handleColor.value,
       '--toggle-height': height.value + 'px',
       '--toggle-width': width.value + 'px',
       '--toggle-speed': (speed.value / 1000) + 's',
