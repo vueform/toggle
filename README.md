@@ -133,17 +133,17 @@ Join our [Discord channel](https://discord.gg/WhX2nG6GTQ) or [open an issue](htt
 
 ## Slots
 
-| Slot | Attributes | Description |
-| --- | --- | --- |
-| **off** | | Rendered when the toggle is `off` (by default `offLabel`). |
-| **on** | | Rendered when the toggle is `on` (by default `onLabel`). |
+| Slot |  Description |
+| --- | --- |
+| **off** | Rendered when the toggle is `off` (by default `offLabel`). |
+| **on** | Rendered when the toggle is `on` (by default `onLabel`). |
 
 ## Examples
 
 * [Default toggle](#default-toggle)
 * [Toggle with labels](#toggle-with-labels)
 * [Toggle with custom values](#toggle-with-custom-values)
-* [Toggle with custom styles](#toggle-with-custom-style)
+* [Toggle with custom styles](#toggle-with-custom-styles)
 
 ### Default toggle
 
