@@ -8,7 +8,6 @@
   "main": "./dist/toggle.js",
   "module": "./dist/toggle.js",
   "unpkg": "./dist/toggle.global.js",
-  "browser": "./dist/toggle.global.js",
   "style": "./themes/default.css",
   "repository": {
     "type": "git",
