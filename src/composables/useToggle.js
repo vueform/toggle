@@ -6,19 +6,19 @@ export default function useValue (props, context, dependencies)
   
   // ============ DEPENDENCIES ============
 
-  const value = dependencies.value
+  const inputValue = dependencies.inputValue
   const update = dependencies.update
 
   // ============== COMPUTED ==============
 
-  const isOn = computed(() => {
-    return value.value === trueValue.value
+  const checked = computed(() => {
+    return inputValue.value === trueValue.value
   })
 
   // =============== METHODS ==============
 
   const toggle = () => {
-    update(isOn.value ? falseValue.value : trueValue.value)
+    update(checked.value ? falseValue.value : trueValue.value)
   }
 
   const on = () => {
@@ -30,7 +30,7 @@ export default function useValue (props, context, dependencies)
   }
 
   return {
-    isOn,
+    checked,
     toggle,
     on,
     off,

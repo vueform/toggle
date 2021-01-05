@@ -1,17 +1,22 @@
 <template>
-  <div
-    class="toggle-input"
-    :class="{'is-active': isOn}"
-    :style="cssVars"
-    :id="id"
-    @click="toggle"
-  >
-    <slot name="on">
-      <span class="toggle-on" v-html="onLabel"></span>
-    </slot>
-    <slot name="off">
-      <span class="toggle-off" v-html="offLabel"></span>
-    </slot>
+  <div class="toggle-input" :style="cssVars">
+    <input
+      type="checkbox"
+      :name="name"
+      :id="id"
+      :checked="checked"
+      :trueValue="trueValue"
+      :falseValue="falseValue"
+      @input="handleInput"
+    />
+    <label :for="id">
+      <slot name="on">
+        <span class="toggle-on" v-html="onLabel"></span>
+      </slot>
+      <slot name="off">
+        <span class="toggle-off" v-html="offLabel"></span>
+      </slot>
+    </label>
   </div>
 </template>
 
@@ -48,6 +53,11 @@
         required: false,
         default: 'toggle'
       },
+      name: {
+        type: [String, Number],
+        required: false,
+        default: 'toggle'
+      },
       falseValue: {
         type: [String, Number, Boolean],
         required: false,
@@ -57,6 +67,16 @@
         type: [String, Number, Boolean],
         required: false,
         default: true,
+      },
+      offLabel: {
+        type: [String, Object],
+        required: false,
+        default: ''
+      },
+      onLabel: {
+        type: [String, Object],
+        required: false,
+        default: ''
       },
       width: {
         type: Number,
@@ -73,16 +93,6 @@
         required: false,
         default: 300
       },
-      offLabel: {
-        type: [String, Object],
-        required: false,
-        default: ''
-      },
-      onLabel: {
-        type: [String, Object],
-        required: false,
-        default: ''
-      },
       offBackground: {
         type: String,
         required: false,
@@ -93,17 +103,17 @@
         required: false,
         default: '#41b883'
       },
-      offColor: {
+      offTextColor: {
         type: String,
         required: false,
         default: '#888888'
       },
-      onColor: {
+      onTextColor: {
         type: String,
         required: false,
         default: '#ffffff'
       },
-      handleBackground: {
+      handleColor: {
         type: String,
         required: false,
         default: '#ffffff'
@@ -116,17 +126,17 @@
     },
     setup(props, context)
     {
-      // no export
       const value = useValue(props, context)
 
       const style = useStyle(props, context)
 
       const toggle = useToggle(props, context, {
-        value: value.value,
+        inputValue: value.inputValue,
         update: value.update,
       })
 
       return {
+        ...value,
         ...style,
         ...toggle,
       }

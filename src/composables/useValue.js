@@ -1,11 +1,11 @@
-import { toRefs } from 'composition-api'
+import { toRefs, watch } from 'composition-api'
 
 export default function useValue (props, context, dependencies)
 {
-  const { value: baseValue, modelValue, falseValue } = toRefs(props)
+  const { value: baseValue, modelValue, falseValue, trueValue } = toRefs(props)
 
   /* istanbul ignore next */
-  const value = context.expose !== undefined ? modelValue : baseValue
+  const inputValue = context.expose !== undefined ? modelValue : baseValue
 
   // =============== METHODS ==============
 
@@ -16,13 +16,23 @@ export default function useValue (props, context, dependencies)
     context.emit('change', val)
   }
 
+  const handleInput = (val) => {
+    update(val.target.checked ? trueValue.value : falseValue.value)
+  }
+
   // ================ HOOKS ===============
 
-  if ([null, undefined].indexOf(value.value) !== -1) {
+  if ([null, undefined, false, 0, '0', 'off'].indexOf(inputValue.value) !== -1) {
     update(falseValue.value)
   }
 
+  if ([true, 1, '1', 'on'].indexOf(inputValue.value) !== -1) {
+    update(trueValue.value)
+  }
+
   return {
-    value,
+    inputValue,
+    update,
+    handleInput,
   }
 }
