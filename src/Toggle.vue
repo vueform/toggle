@@ -16,7 +16,9 @@
 </template>
 
 <script>
-  import { ref, computed, toRefs } from 'composition-api'
+  import useValue from './composables/useValue'
+  import useStyle from './composables/useStyle'
+  import useToggle from './composables/useToggle'
 
   /* istanbul ignore next */
   const valueProps = {
@@ -114,152 +116,20 @@
     },
     setup(props, context)
     {
-      const { value: baseValue, modelValue, trueValue, falseValue, width, height, speed,
-              offLabel, onLabel, offBackground, onBackground, offColor, onColor, fontSize,
-              handleBackground, } = toRefs(props)
-
-      /* istanbul ignore next */
-      const value = context.expose !== undefined ? modelValue : baseValue
-
-      // ============== COMPUTED ==============
-
-      const isOn = computed(() => {
-        return value.value === trueValue.value
-      })
-
-      const cssVars = computed(() => {
-        let cssVars = {
-          '--toggle-off-background': offBackground.value,
-          '--toggle-on-background': onBackground.value,
-          '--toggle-off-color': offColor.value,
-          '--toggle-on-color': onColor.value,
-          '--toggle-handle-background': handleBackground.value,
-          '--toggle-height': height.value + 'px',
-          '--toggle-width': width.value + 'px',
-          '--toggle-speed': (speed.value / 1000) + 's',
-          '--toggle-radius': (height.value / 2) + 'px',
-          '--toggle-handle-size': (height.value - 6) + 'px',
-          '--toggle-handle-right-on': (height.value - 3) + 'px',
-          '--toggle-font-size': fontSize.value,
-        }
-
-        return cssVars
-      })
-
-      // =============== METHODS ==============
-
-      const toggle = () => {
-        update(isOn.value ? falseValue.value : trueValue.value)
-      }
-
-      const on = () => {
-        update(trueValue.value)
-      }
-
-      const off = () => {
-        update(falseValue.value)
-      }
-
       // no export
-      const update = (val) => {
-        context.emit('input', val)
-        context.emit('update:modelValue', val)
-        context.emit('change', val)
-      }
+      const value = useValue(props, context)
 
-      // ================ HOOKS ===============
+      const style = useStyle(props, context)
 
-      if ([null, undefined].indexOf(value.value) !== -1) {
-        update(falseValue.value)
-      }
-
-      const textColor = ref('red')
+      const toggle = useToggle(props, context, {
+        value: value.value,
+        update: value.update,
+      })
 
       return {
-        toggle,
-        isOn,
-        cssVars,
+        ...style,
+        ...toggle,
       }
     }
   }
 </script>
-
-<style lang="scss" scoped>
-  .toggle-input {
-    background: #f1f1f1;
-    background: var(--toggle-off-background);
-    width: 54px;
-    width: var(--toggle-width);
-    height: 24px;
-    height: var(--toggle-height);
-    display: flex;
-    border-radius: 12px;
-    border-radius: var(--toggle-radius);
-    position: relative;
-    cursor: pointer;
-    transition: .3s background;
-    transition: var(--toggle-speed) background;
-    align-items: center;
-    justify-content: center;
-    box-sizing: border-box;
-    padding-left: 24px;
-    padding-left: var(--toggle-height);
-    padding-right: 6px;
-
-    &:before {
-      content: " ";
-      background: #ffffff;
-      background: var(--toggle-handle-background);
-      width: 18px;
-      width: var(--toggle-handle-size);
-      height: 18px;
-      height: var(--toggle-handle-size);
-      border-radius: 50%;
-      position: absolute;
-      left: 3px;
-      top: 3px;
-      transition: .3s left;
-      transition: var(--toggle-speed) left;
-    }
-
-    &.is-active {
-      background: #41b883;
-      background: var(--toggle-on-background);
-      padding-right: 24px;
-      padding-right: var(--toggle-height);
-      padding-left: 6px;
-
-      &:before {
-        left: calc(100% - var(--toggle-handle-right-on));
-      }
-
-      .toggle-on {
-        display: flex;
-      }
-
-      .toggle-off {
-        display: none;
-      }
-    }
-
-    .toggle-on,
-    .toggle-off {
-      font-size: 13px;
-      font-size: var(--toggle-font-size);
-      text-align: center;
-      font-weight: 500;
-    }
-
-    .toggle-on {
-      display: none;
-      color: #ffffff;
-      color: var(--toggle-on-color);
-    }
-
-    .toggle-off {
-      display: flex;
-      color: #888888;
-      color: var(--toggle-off-color);
-    }
-  }
-</style>
