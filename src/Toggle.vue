@@ -1,5 +1,8 @@
 <template>
-  <div class="toggle-input" :style="cssVars">
+  <div
+    class="toggle-input"
+    :style="cssVars"
+  >
     <input
       type="checkbox"
       :name="name"
@@ -96,7 +99,7 @@
       offBackground: {
         type: String,
         required: false,
-        default: '#f1f1f1'
+        default: '#d4e0e7'
       },
       onBackground: {
         type: String,
