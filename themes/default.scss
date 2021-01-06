@@ -23,7 +23,7 @@
       &:before {
         content: " ";
         background: #ffffff;
-        background: var(--toggle-handle-color);
+        background: var(--toggle-off-handle-color);
         width: 18px;
         width: var(--toggle-handle-size);
         height: 18px;
@@ -68,6 +68,8 @@
         padding-left: 6px;
 
         &:before {
+          background: #ffffff;
+          background: var(--toggle-on-handle-color);
           left: calc(100% - var(--toggle-handle-right-on));
         }
 

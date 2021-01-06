@@ -8,14 +8,22 @@ describe('useStyle', () => {
         width: 200,
         height: 50,
         speed: 500,
-        offBackground: '#e8e8e8',
-        onBackground: 'blue',
-        disabledBackground: 'red',
-        offTextColor: '#111111',
-        onTextColor: '#f1f1f1',
-        disabledTextColor: '#222222',
-        handleColor: '#000000',
-        disabledHandleColor: '#121212',
+        colors: {
+          background: {
+            off: '#e8e8e8',
+            on: 'blue',
+            disabled: 'red',
+          },
+          text: {
+            on: '#f1f1f1',
+            off: '#111111',
+            disabled: '#222222',
+          },
+          handle: {
+            on: '#000000',
+            disabled: '#121212',
+          }
+        },
         fontSize: '14px'
       })
 
@@ -26,7 +34,8 @@ describe('useStyle', () => {
         '--toggle-off-text-color': '#111111',
         '--toggle-on-text-color': '#f1f1f1',
         '--toggle-disabled-text-color': '#222222',
-        '--toggle-handle-color': '#000000',
+        '--toggle-on-handle-color': '#000000',
+        '--toggle-off-handle-color': '#ffffff',
         '--toggle-disabled-handle-color': '#121212',
         '--toggle-height': '50px',
         '--toggle-width': '200px',

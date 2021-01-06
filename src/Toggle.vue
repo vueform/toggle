@@ -102,45 +102,10 @@
         required: false,
         default: 300
       },
-      offBackground: {
-        type: String,
+      colors: {
+        type: Object,
         required: false,
-        default: '#d4e0e7'
-      },
-      onBackground: {
-        type: String,
-        required: false,
-        default: '#41b883'
-      },
-      disabledBackground: {
-        type: String,
-        required: false,
-        default: '#d4e0e7'
-      },
-      offTextColor: {
-        type: String,
-        required: false,
-        default: '#80878c'
-      },
-      onTextColor: {
-        type: String,
-        required: false,
-        default: '#ffffff'
-      },
-      disabledTextColor: {
-        type: String,
-        required: false,
-        default: '#80878c'
-      },
-      handleColor: {
-        type: String,
-        required: false,
-        default: '#ffffff'
-      },
-      disabledHandleColor: {
-        type: String,
-        required: false,
-        default: '#f2faff'
+        default: () => ({})
       },
       fontSize: {
         type: String,

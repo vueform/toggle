@@ -124,14 +124,7 @@ Join our [Discord channel](https://discord.gg/WhX2nG6GTQ) or [open an issue](htt
 | **width** | `number` | `54` | The width of the toggle in `px`. |
 | **height** | `number` | `24` | The height of the toggle in `px`. |
 | **speed** | `number` | `300` | The speed of toggle switch in `milliseconds`. |
-| **offBackground** | `string` | `#d4e0e7` | The color of background when toggle is `off`. |
-| **onBackground** | `string` | `#41b883` | The color of background when toggle is `on`. |
-| **disabledBackground** | `string` | `#d4e0e7` | The color of background when toggle is `disabled`. |
-| **offTextColor** | `string` | `#80878c` | The color of text when toggle is `off`. |
-| **onTextColor** | `string` | `#ffffff` | The color of text when toggle is `on`. |
-| **disabledTextColor** | `string` | `#80878c` | The color of text when toggle is `disabled`. |
-| **handleColor** | `string` | `#ffffff` | The background color of toggle handle. |
-| **disabledHandleColor** | `string` | `#f2faff` | The background color of toggle handle when toggle is `disabled`. |
+| **colors** | `object` |  | The colors of toggle. Default:<br/>`{`<br/>&nbsp;&nbsp;`background: {`<br/>&nbsp;&nbsp;&nbsp;&nbsp;`on: '#41b883',`<br/>&nbsp;&nbsp;&nbsp;&nbsp;`off: '#d4e0e7',`<br/>&nbsp;&nbsp;&nbsp;&nbsp;`disabled: '#d4e0e7'`<br/>&nbsp;&nbsp;`},`<br/>&nbsp;&nbsp;`text: {`<br/>&nbsp;&nbsp;&nbsp;&nbsp;`on: '#ffffff',`<br/>&nbsp;&nbsp;&nbsp;&nbsp;`off: '#80878c',`<br/>&nbsp;&nbsp;&nbsp;&nbsp;`disabled: '#80878c'`<br/>&nbsp;&nbsp;`},`<br/>&nbsp;&nbsp;`handle: {`<br/>&nbsp;&nbsp;&nbsp;&nbsp;`on: '#ffffff',`<br/>&nbsp;&nbsp;&nbsp;&nbsp;`off: '#ffffff',`<br/>&nbsp;&nbsp;&nbsp;&nbsp;`disabled: '#f2faff'`<br/>&nbsp;&nbsp;`}` |
 | **fontSize** | `string` | `13px` | The font size of toggle labels. |
 
 ## Events
