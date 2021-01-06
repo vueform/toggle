@@ -116,6 +116,7 @@ Join our [Discord channel](https://discord.gg/WhX2nG6GTQ) or [open an issue](htt
 | --- | --- | --- | --- |
 | **id** | `string` | `toggle` | The `id` attribute of input field. Make sure to customize when using more toggles on a single page. |
 | **name** | `string` | `toggle` | The `name` attribute of input field. |
+| **disabled** | `boolean` | `false` | Whether the toggle should be disabled. |
 | **falseValue** | `string\|number\|boolean` | `false` | The value when the toggle is `off`. |
 | **trueValue** | `string\|number\|boolean` | `true` | The value when toggle is `on`. |
 | **offLabel** | `string` | | The label when toggle is `off`. |
@@ -125,9 +126,12 @@ Join our [Discord channel](https://discord.gg/WhX2nG6GTQ) or [open an issue](htt
 | **speed** | `number` | `300` | The speed of toggle switch in `milliseconds`. |
 | **offBackground** | `string` | `#d4e0e7` | The color of background when toggle is `off`. |
 | **onBackground** | `string` | `#41b883` | The color of background when toggle is `on`. |
-| **offTextColor** | `string` | `#888888` | The color of text when toggle is `off`. |
+| **disabledBackground** | `string` | `#d4e0e7` | The color of background when toggle is `disabled`. |
+| **offTextColor** | `string` | `#80878c` | The color of text when toggle is `off`. |
 | **onTextColor** | `string` | `#ffffff` | The color of text when toggle is `on`. |
+| **disabledTextColor** | `string` | `#80878c` | The color of text when toggle is `disabled`. |
 | **handleColor** | `string` | `#ffffff` | The background color of toggle handle. |
+| **disabledHandleColor** | `string` | `#f2faff` | The background color of toggle handle when toggle is `disabled`. |
 | **fontSize** | `string` | `13px` | The font size of toggle labels. |
 
 ## Events

@@ -7,6 +7,7 @@
       type="checkbox"
       :name="name"
       :id="id"
+      :disabled="disabled"
       :checked="checked"
       :trueValue="trueValue"
       :falseValue="falseValue"
@@ -61,6 +62,11 @@
         required: false,
         default: 'toggle'
       },
+      disabled: {
+        type: Boolean,
+        required: false,
+        default: false,
+      },
       falseValue: {
         type: [String, Number, Boolean],
         required: false,
@@ -106,20 +112,35 @@
         required: false,
         default: '#41b883'
       },
+      disabledBackground: {
+        type: String,
+        required: false,
+        default: '#d4e0e7'
+      },
       offTextColor: {
         type: String,
         required: false,
-        default: '#888888'
+        default: '#80878c'
       },
       onTextColor: {
         type: String,
         required: false,
         default: '#ffffff'
       },
+      disabledTextColor: {
+        type: String,
+        required: false,
+        default: '#80878c'
+      },
       handleColor: {
         type: String,
         required: false,
         default: '#ffffff'
+      },
+      disabledHandleColor: {
+        type: String,
+        required: false,
+        default: '#f2faff'
       },
       fontSize: {
         type: String,

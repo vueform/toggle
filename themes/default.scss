@@ -52,7 +52,7 @@
 
       .toggle-off {
         display: flex;
-        color: #888888;
+        color: #80878c;
         color: var(--toggle-off-text-color);
       }
     }
@@ -77,6 +77,23 @@
 
         .toggle-off {
           display: none;
+        }
+      }
+
+      &:disabled + label {
+        background: #d4e0e7;
+        background: var(--toggle-disabled-background);
+        cursor: not-allowed;
+
+        &:before {
+          background: #f2faff;
+          background: var(--toggle-disabled-handle-color);
+        }
+
+        .toggle-on,
+        .toggle-off {
+          color: #80878c;
+          color: var(--toggle-disabled-text-color);
         }
       }
     }
