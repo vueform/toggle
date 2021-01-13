@@ -63,7 +63,7 @@
 
 ## Demo 
 
-Check out our [demo](https://jsfiddle.net/p60t2bs4/2/).
+Check out our [demo](https://jsfiddle.net/quc03rf4/).
 
 ## Installation
 
@@ -155,7 +155,7 @@ Join our [Discord channel](https://discord.gg/WhX2nG6GTQ) or [open an issue](htt
 />
 ```
 
-[JSFiddle - Example #1](https://jsfiddle.net/p60t2bs4/2/)
+[JSFiddle - Example #1](https://jsfiddle.net/quc03rf4/)
 
 ### Toggle with labels
 
@@ -168,7 +168,7 @@ Join our [Discord channel](https://discord.gg/WhX2nG6GTQ) or [open an issue](htt
 />
 ```
 
-[JSFiddle - Example #2](https://jsfiddle.net/p60t2bs4/2/)
+[JSFiddle - Example #2](https://jsfiddle.net/quc03rf4/)
 
 ### Toggle with custom values
 
@@ -181,7 +181,7 @@ Join our [Discord channel](https://discord.gg/WhX2nG6GTQ) or [open an issue](htt
 />
 ```
 
-[JSFiddle - Example #3](https://jsfiddle.net/p60t2bs4/2/)
+[JSFiddle - Example #3](https://jsfiddle.net/quc03rf4/)
 
 ### Toggle with custom styles
 
@@ -190,14 +190,18 @@ Join our [Discord channel](https://discord.gg/WhX2nG6GTQ) or [open an issue](htt
   v-model="value"
   id="example4"
   font-size="15px"
-  on-background="#35495e"
   :width="80"
   :height="30"
   :speed="500"
+  :colors="{
+    background: {
+      on: '#35495e'
+    }
+  }"
 />
 ```
 
-[JSFiddle - Example #4](https://jsfiddle.net/p60t2bs4/2/)
+[JSFiddle - Example #4](https://jsfiddle.net/quc03rf4/)
 
 ## About Vueform
 
