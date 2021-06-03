@@ -1,11 +1,17 @@
-import { toRefs, watch } from 'composition-api'
+import { toRefs, computed } from 'composition-api'
 
 export default function useValue (props, context, dependencies)
 {
-  const { value: baseValue, modelValue, falseValue, trueValue } = toRefs(props)
+  const { value, modelValue, falseValue, trueValue, disabled } = toRefs(props)
 
   /* istanbul ignore next */
-  const inputValue = context.expose !== undefined ? modelValue : baseValue
+  const externalValue = context.expose !== undefined ? modelValue : value
+
+  // ============== COMPUTED ==============
+
+  const checked = computed(() => {
+    return externalValue.value === trueValue.value
+  })
 
   // =============== METHODS ==============
 
@@ -16,23 +22,43 @@ export default function useValue (props, context, dependencies)
     context.emit('change', val)
   }
 
+  const check = () => {
+    update(trueValue.value)
+  }
+
+  const uncheck = () => {
+    update(falseValue.value)
+  }
+
   const handleInput = (val) => {
     update(val.target.checked ? trueValue.value : falseValue.value)
   }
 
-  // ================ HOOKS ===============
+  const handleClick = () => {
+    if (disabled.value) {
+      return
+    }
 
-  if ([null, undefined, false, 0, '0', 'off'].indexOf(inputValue.value) !== -1) {
-    update(falseValue.value)
+    checked.value ? uncheck() : check()
   }
 
-  if ([true, 1, '1', 'on'].indexOf(inputValue.value) !== -1) {
-    update(trueValue.value)
+  // ================ HOOKS ===============
+
+  if ([null, undefined, false, 0, '0', 'off'].indexOf(externalValue.value) !== -1 && externalValue.value !== falseValue.value) {
+    uncheck()
+  }
+
+  if ([true, 1, '1', 'on'].indexOf(externalValue.value) !== -1 && externalValue.value !== trueValue.value) {
+    check()
   }
 
   return {
-    inputValue,
+    externalValue,
+    checked,
     update,
+    check,
+    uncheck,
     handleInput,
+    handleClick,
   }
 }

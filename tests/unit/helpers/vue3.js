@@ -70,3 +70,11 @@ export const getValue = (toggle) => {
 export const setProp = (wrapper, object, prop, value) => {
   object[prop] = value
 }
+
+const keyEvent = (event, wrapper, key) => {
+  wrapper.trigger(`${event}.${key}`)
+}
+
+export const keyup = (wrapper, key) => {
+  keyEvent('keyup', wrapper, key)
+}

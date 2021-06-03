@@ -12,17 +12,6 @@ describe('Toggle', () => {
 
       expect(input.attributes('id')).toBe('my-toggle')
     })
-
-    it('should add id attribute as for for label', async () => {
-      const toggle = createToggle({
-        value: 0,
-        id: 'my-toggle',
-      })
-
-      const label = findAll(toggle, 'label').at(0)
-
-      expect(label.attributes('for')).toBe('my-toggle')
-    })
   })
 
   describe('name', () => {

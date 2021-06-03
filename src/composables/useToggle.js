@@ -2,17 +2,23 @@ import { computed, toRefs } from 'composition-api'
 
 export default function useValue (props, context, dependencies)
 {
-  const { trueValue, falseValue } = toRefs(props)
+  const { trueValue, falseValue, onLabel, offLabel } = toRefs(props)
   
   // ============ DEPENDENCIES ============
 
-  const inputValue = dependencies.inputValue
+  const checked = dependencies.checked
   const update = dependencies.update
 
   // ============== COMPUTED ==============
 
-  const checked = computed(() => {
-    return inputValue.value === trueValue.value
+  const label = computed(() => {
+    let label = checked.value ? onLabel.value : offLabel.value
+
+    if (!label) {
+      label = '&nbsp;'
+    }
+
+    return label
   })
 
   // =============== METHODS ==============
@@ -30,7 +36,7 @@ export default function useValue (props, context, dependencies)
   }
 
   return {
-    checked,
+    label,
     toggle,
     on,
     off,

@@ -1,4 +1,11 @@
-## v1.1.0
+## v2.0.0
+
+> `2021-06-03`
+
+### 🎉 Features
+  - **BREAKING:** Removed `width`, `height`, `speed`, `colors`, `fontSize` properties and `off`, `on` slots.
+  - **BREAKING:** Completely updated `default` style and classnames.
+  - Added `required`, `classes`, `labelledby`, `describedby` properties and `label` slot.
 
 > `2021-01-06`
 

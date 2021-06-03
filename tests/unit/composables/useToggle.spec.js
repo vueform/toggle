@@ -20,6 +20,44 @@ describe('useToggle', () => {
     })
   })
 
+  describe('label', () => {
+    it('should be equal to onLabel if checked', async () => {
+      const toggle = createToggle({
+        value: true,
+        onLabel: 'on',
+        offLabel: 'off',
+      })
+      
+      expect(toggle.vm.label).toBe('on')
+    })
+
+    it('should be equal to offLabel if not checked', async () => {
+      const toggle = createToggle({
+        value: false,
+        onLabel: 'on',
+        offLabel: 'off',
+      })
+      
+      expect(toggle.vm.label).toBe('off')
+    })
+
+    it('should be equal to &nbsp; if labels are not provided and off', async () => {
+      const toggle = createToggle({
+        value: false,
+      })
+      
+      expect(toggle.vm.label).toBe('&nbsp;')
+    })
+
+    it('should be equal to &nbsp; if labels are not provided and on', async () => {
+      const toggle = createToggle({
+        value: false,
+      })
+      
+      expect(toggle.vm.label).toBe('&nbsp;')
+    })
+  })
+
   describe('toggle', () => {
     it('should toggle value', async () => {
       const toggle = createToggle({
@@ -33,7 +71,7 @@ describe('useToggle', () => {
       await nextTick()
 
       expect(toggle.vm.checked).toBe(false)
-      expect(toggle.vm.inputValue).toBe('off')
+      expect(toggle.vm.externalValue).toBe('off')
       expect(toggle.vm.$parent.value).toBe('off')
 
       toggle.vm.toggle()
@@ -41,7 +79,7 @@ describe('useToggle', () => {
       await nextTick()
 
       expect(toggle.vm.checked).toBe(true)
-      expect(toggle.vm.inputValue).toBe('on')
+      expect(toggle.vm.externalValue).toBe('on')
       expect(toggle.vm.$parent.value).toBe('on')
     })
   })
@@ -59,7 +97,7 @@ describe('useToggle', () => {
       await nextTick()
 
       expect(toggle.vm.checked).toBe(true)
-      expect(toggle.vm.inputValue).toBe('on')
+      expect(toggle.vm.externalValue).toBe('on')
       expect(toggle.vm.$parent.value).toBe('on')
     })
   })
@@ -77,7 +115,7 @@ describe('useToggle', () => {
       await nextTick()
 
       expect(toggle.vm.checked).toBe(false)
-      expect(toggle.vm.inputValue).toBe('off')
+      expect(toggle.vm.externalValue).toBe('off')
       expect(toggle.vm.$parent.value).toBe('off')
     })
   })

@@ -1,33 +1,54 @@
 <template>
   <div
-    class="toggle-input"
-    :style="cssVars"
+    :class="classList.container"
+    :tabindex="disabled ? -1 : 0"
+    :aria-checked="checked"
+    :aria-describedby="describedby"
+    :aria-labelledby="labelledby"
+    role="switch"
+    @keyup.space="handleSpace"
   >
     <input
+      v-show="false"
       type="checkbox"
-      :name="name"
       :id="id"
-      :disabled="disabled"
+      :name="name"
+      :value="trueValue"
       :checked="checked"
-      :trueValue="trueValue"
-      :falseValue="falseValue"
-      @input="handleInput"
+      :disabled="disabled"
     />
-    <label :for="id">
-      <slot name="on">
-        <span class="toggle-on" v-html="onLabel"></span>
+    <div
+      :class="classList.toggle"
+      @click="handleClick"
+    >
+      <span :class="classList.handle"></span>
+      <slot name="label" :checked="checked" :classList="classList">
+        <span
+          :class="classList.label"
+          v-html="label"
+        ></span>
       </slot>
-      <slot name="off">
-        <span class="toggle-off" v-html="offLabel"></span>
-      </slot>
-    </label>
+      <input v-if="required" type="checkbox" :style="{
+        appearance: 'none',
+        height: '1px',
+        margin: '0',
+        padding: '0',
+        fontSize: '0',
+        background: 'transparent',
+        position: 'absolute',
+        width: '100%',
+        bottom: '0',
+        outline: 'none',
+      }" :checked="checked" aria-hidden="true" tabindex="-1" required>
+    </div>
   </div>
 </template>
 
 <script>
   import useValue from './composables/useValue'
-  import useStyle from './composables/useStyle'
   import useToggle from './composables/useToggle'
+  import useClasses from './composables/useClasses'
+  import useKeyboard from './composables/useKeyboard'
 
   /* istanbul ignore next */
   const valueProps = {
@@ -67,6 +88,11 @@
         required: false,
         default: false,
       },
+      required: {
+        type: Boolean,
+        required: false,
+        default: false,
+      },
       falseValue: {
         type: [String, Number, Boolean],
         required: false,
@@ -77,57 +103,54 @@
         required: false,
         default: true,
       },
-      offLabel: {
-        type: [String, Object],
-        required: false,
-        default: ''
-      },
       onLabel: {
         type: [String, Object],
         required: false,
         default: ''
       },
-      width: {
-        type: Number,
+      offLabel: {
+        type: [String, Object],
         required: false,
-        default: 54
+        default: ''
       },
-      height: {
-        type: Number,
-        required: false,
-        default: 24
-      },
-      speed: {
-        type: Number,
-        required: false,
-        default: 300
-      },
-      colors: {
+      classes: {
         type: Object,
         required: false,
         default: () => ({})
       },
-      fontSize: {
+      labelledby: {
         type: String,
         required: false,
-        default: '13px'
+      },
+      describedby: {
+        type: String,
+        required: false,
       },
     },
     setup(props, context)
     {
       const value = useValue(props, context)
 
-      const style = useStyle(props, context)
-
       const toggle = useToggle(props, context, {
-        inputValue: value.inputValue,
+        checked: value.checked,
         update: value.update,
+      })
+
+      const classes = useClasses(props, context, {
+        checked: value.checked,
+      })
+
+      const keyboard = useKeyboard(props, context, {
+        check: value.check,
+        uncheck: value.uncheck,
+        checked: value.checked,
       })
 
       return {
         ...value,
-        ...style,
+        ...classes,
         ...toggle,
+        ...keyboard,
       }
     }
   }

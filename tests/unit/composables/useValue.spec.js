@@ -1,4 +1,4 @@
-import { createToggle, getValue } from 'unit-test-helpers'
+import { createToggle, getValue, findAll } from 'unit-test-helpers'
 import { nextTick } from 'composition-api'
 
 describe('useValue', () => {
@@ -16,7 +16,7 @@ describe('useValue', () => {
 
       await nextTick()
 
-      expect(toggle.vm.inputValue).toBe(true)
+      expect(toggle.vm.externalValue).toBe(true)
       expect(toggle.vm.$parent.value).toBe(true)
 
       toggle.vm.handleInput({
@@ -27,7 +27,7 @@ describe('useValue', () => {
 
       await nextTick()
 
-      expect(toggle.vm.inputValue).toBe(false)
+      expect(toggle.vm.externalValue).toBe(false)
       expect(toggle.vm.$parent.value).toBe(false)
     })
 
@@ -46,7 +46,7 @@ describe('useValue', () => {
 
       await nextTick()
 
-      expect(toggle.vm.inputValue).toBe('on')
+      expect(toggle.vm.externalValue).toBe('on')
       expect(toggle.vm.$parent.value).toBe('on')
 
       toggle.vm.handleInput({
@@ -57,8 +57,47 @@ describe('useValue', () => {
 
       await nextTick()
 
-      expect(toggle.vm.inputValue).toBe('off')
+      expect(toggle.vm.externalValue).toBe('off')
       expect(toggle.vm.$parent.value).toBe('off')
+    })
+  })
+
+  describe('handleClick', () => {
+    it('should check if not checked on click', async () => {
+      const toggle = createToggle({
+        value: false,
+      })
+
+      findAll(toggle, 'input + div').at(0).trigger('click')
+
+      await nextTick()
+
+      expect(toggle.vm.checked).toBe(true)
+    })
+
+    it('should uncheck if checked on click', async () => {
+      const toggle = createToggle({
+        value: true,
+      })
+
+      findAll(toggle, 'input + div').at(0).trigger('click')
+
+      await nextTick()
+
+      expect(toggle.vm.checked).toBe(false)
+    })
+
+    it('should not uncheck if checked on click if disabled', async () => {
+      const toggle = createToggle({
+        value: true,
+        disabled: true,
+      })
+
+      findAll(toggle, 'input + div').at(0).trigger('click')
+
+      await nextTick()
+
+      expect(toggle.vm.checked).toBe(true)
     })
   })
 

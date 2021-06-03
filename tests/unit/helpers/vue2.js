@@ -70,3 +70,15 @@ export const getValue = (toggle) => {
 export const setProp = (wrapper, object, prop, value) => {
   wrapper.vm.$set(object, prop, value)
 }
+
+const keyEvent = (event, wrapper, key) => {
+  switch (key) {
+    case 'space':
+      wrapper.trigger(event, { keyCode: 32 })
+      break
+  }
+}
+
+export const keyup = (wrapper, key) => {
+  keyEvent('keyup', wrapper, key)
+}
