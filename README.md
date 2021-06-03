@@ -150,26 +150,26 @@ import Toggle from '@vueform/toggle/dist/toggle.vue2.js'
 ## Styling with CSS vars
 
 The following CSS variables can be used to customize the toggle button when using `default.css`:
-``` CSS
-var(--toggle-width, 3rem);
-var(--toggle-height, 1.25rem);
-var(--toggle-border, 0.125rem) solid;
-var(--toggle-font-size, 0.75rem);
-var(--toggle-duration, 150ms);
-var(--toggle-bg-on, #10b981);
-var(--toggle-bg-off, #e5e7eb);
-var(--toggle-bg-on-disabled, #d1d5db);
-var(--toggle-bg-off-disabled, #e5e7eb);
-var(--toggle-border-on, #10b981);
-var(--toggle-border-off, #e5e7eb);
-var(--toggle-border-on-disabled, #d1d5db);
-var(--toggle-border-off-disabled, #e5e7eb);
-var(--toggle-text-on, #ffffff);
-var(--toggle-text-off, #374151);
-var(--toggle-text-on-disabled, #9ca3af);
-var(--toggle-text-off-disabled, #9ca3af);
-var(--toggle-handle-enabled, #ffffff);
-var(--toggle-handle-disabled, #f3f4f6);
+``` css
+--toggle-width: 3rem;
+--toggle-height: 1.25rem;
+--toggle-border: 0.125rem;
+--toggle-font-size: 0.75rem;
+--toggle-duration: 150ms;
+--toggle-bg-on: #10b981;
+--toggle-bg-off: #e5e7eb;
+--toggle-bg-on-disabled: #d1d5db;
+--toggle-bg-off-disabled: #e5e7eb;
+--toggle-border-on: #10b981;
+--toggle-border-off: #e5e7eb;
+--toggle-border-on-disabled: #d1d5db;
+--toggle-border-off-disabled: #e5e7eb;
+--toggle-text-on: #ffffff;
+--toggle-text-off: #374151;
+--toggle-text-on-disabled: #9ca3af;
+--toggle-text-off-disabled: #9ca3af;
+--toggle-handle-enabled: #ffffff;
+--toggle-handle-disabled: #f3f4f6;
 ```
 
 You might override them globally:
