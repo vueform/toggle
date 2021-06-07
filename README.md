@@ -65,7 +65,7 @@
 
 ## Demo 
 
-Check out our [demo](https://jsfiddle.net/4ckev9rx/).
+Check out our [demo](https://jsfiddle.net/4ckev9rx/1/).
 
 ## Installation
 
@@ -290,7 +290,7 @@ Join our [Discord channel](https://discord.gg/WhX2nG6GTQ) or [open an issue](htt
 />
 ```
 
-[JSFiddle - Example #1](https://jsfiddle.net/4ckev9rx/)
+[JSFiddle - Example #1](https://jsfiddle.net/4ckev9rx/1/)
 
 ### Toggle with labels
 
@@ -302,7 +302,7 @@ Join our [Discord channel](https://discord.gg/WhX2nG6GTQ) or [open an issue](htt
 />
 ```
 
-[JSFiddle - Example #2](https://jsfiddle.net/4ckev9rx/)
+[JSFiddle - Example #2](https://jsfiddle.net/4ckev9rx/1/)
 
 ### Toggle with custom value
 
@@ -314,7 +314,7 @@ Join our [Discord channel](https://discord.gg/WhX2nG6GTQ) or [open an issue](htt
 />
 ```
 
-[JSFiddle - Example #3](https://jsfiddle.net/4ckev9rx/)
+[JSFiddle - Example #3](https://jsfiddle.net/4ckev9rx/1/)
 
 ### Toggle with custom labels
 
@@ -328,7 +328,7 @@ Join our [Discord channel](https://discord.gg/WhX2nG6GTQ) or [open an issue](htt
 </Toggle>
 ```
 
-[JSFiddle - Example #4](https://jsfiddle.net/4ckev9rx/)
+[JSFiddle - Example #4](https://jsfiddle.net/4ckev9rx/1/)
 
 ## About Vueform
 
