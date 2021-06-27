@@ -1,4 +1,9 @@
 <div align="center">
+
+  <a href="https://www.npmjs.com/package/@vueform/toggle" target="_blank">
+    <img alt="npm" src="https://img.shields.io/npm/dm/@vueform/toggle?color=%2353ca2f">
+  </a>
+
   <img alt="CircleCI" src="https://img.shields.io/circleci/build/github/vueform/toggle">
 
   <a href="https://codecov.io/gh/vueform/toggle" target="_blank">
@@ -7,10 +12,6 @@
 
   <a href="https://www.npmjs.com/package/@vueform/toggle" target="_blank">
     <img alt="npm bundle size (scoped version)" src="https://img.shields.io/bundlephobia/minzip/@vueform/toggle?color=53ca2f">
-  </a>
-
-  <a href="https://github.com/vueform/toggle/blob/main/LICENSE.md" target="_blank">
-    <img alt="GitHub" src="https://img.shields.io/github/license/vueform/toggle?color=53ca2f">
   </a>
 
   <a href="https://discord.gg/WhX2nG6GTQ" target="_blank">
@@ -47,8 +48,8 @@
 
 ## Other libraries
 
-* [@vueform/multiselect](https://github.com/vueform/multiselect) - Vue 3 multiselect component with single select, multiselect and tagging options.
-* [@vueform/slider](https://github.com/vueform/slider) - Vue 3 slider component with multihandles, tooltips merging and formatting.
+* [@vueform/multiselect](https://github.com/vueform/multiselect) - Vue 3 multiselect component with tagging options & Tailwind support.
+* [@vueform/slider](https://github.com/vueform/slider) - Vue 3 slider component with tooltips & Tailwind support.
 
 ## Toggle features
 
@@ -149,30 +150,65 @@ import Toggle from '@vueform/toggle/dist/toggle.vue2.js'
 
 ## Styling with CSS vars
 
-The following CSS variables can be used to customize the toggle button when using `default.css`:
+The following CSS variables can be used to customize toggle when using `default.css`:
 ``` css
---toggle-width: 3rem;
---toggle-height: 1.25rem;
---toggle-border: 0.125rem;
---toggle-font-size: 0.75rem;
---toggle-duration: 150ms;
---toggle-bg-on: #10b981;
---toggle-bg-off: #e5e7eb;
---toggle-bg-on-disabled: #d1d5db;
---toggle-bg-off-disabled: #e5e7eb;
---toggle-border-on: #10b981;
---toggle-border-off: #e5e7eb;
---toggle-border-on-disabled: #d1d5db;
---toggle-border-off-disabled: #e5e7eb;
---toggle-text-on: #ffffff;
---toggle-text-off: #374151;
---toggle-text-on-disabled: #9ca3af;
---toggle-text-off-disabled: #9ca3af;
---toggle-handle-enabled: #ffffff;
---toggle-handle-disabled: #f3f4f6;
+
+--ms-font-size: 1rem
+--ms-line-height: 1.375
+--ms-bg: #FFFFFF
+--ms-bg-disabled: #F3F4F6
+--ms-border-color: #D1D5DB
+--ms-border-width: 1px
+--ms-radius: 4px
+--ms-py: 0.5rem
+--ms-px: 0.875rem
+--ms-ring-width: 3px
+--ms-ring-color: #10B98130
+--ms-placeholder-color: #9CA3AF
+  
+--ms-tag-font-size: 0.875rem
+--ms-tag-line-height: 1.25rem
+--ms-tag-font-weight: 600
+--ms-tag-bg: #10B981
+--ms-tag-bg-disabled: #9CA3AF
+--ms-tag-color: #FFFFFF
+--ms-tag-color-disabled: #FFFFFF
+--ms-tag-radius: 4px
+--ms-tag-py: 0.125rem
+--ms-tag-px: 0.5rem
+--ms-tag-my: 0.25rem
+--ms-tag-mx: 0.25rem
+
+--ms-tag-remove-radius: 4px
+--ms-tag-remove-py: 0.25rem
+--ms-tag-remove-px: 0.25rem
+--ms-tag-remove-my: 0rem
+--ms-tag-remove-mx: 0.125rem
+
+--ms-dropdown-bg: #FFFFFF
+--ms-dropdown-border-color: #D1D5DB
+--ms-dropdown-border-width: 1px
+--ms-dropdown-radius: 4px
+
+--ms-option-font-size: 1rem
+--ms-option-line-height: 1.375
+--ms-option-bg-pointed: #FFFFFF
+--ms-option-bg-selected: #10B981
+--ms-option-bg-disabled: #FFFFFF
+--ms-option-bg-selected-pointed: #26C08E
+--ms-option-bg-selected-disabled: #FFFFFF
+--ms-option-color-pointed: #1F2937
+--ms-option-color-selected: #FFFFFF
+--ms-option-color-disabled: #D1D5DB
+--ms-option-color-selected-pointed: #FFFFFF
+--ms-option-color-selected-disabled: #D1FAE5
+--ms-option-py: 0.5rem
+--ms-option-px: 0.75rem
+
+--ms-empty-color: #4B5563
 ```
 
-You might override them globally:
+Override them globally:
 
 ``` css
 :root {
@@ -184,17 +220,17 @@ You might override them globally:
 Or on an instance level:
 
 ``` vue
-<Toggle v-model="value" class="my-toggle-red" />
-<Toggle v-model="value" class="my-toggle-blue" />
+<Toggle v-model="value" class="toggle-red" />
+<Toggle v-model="value" class="toggle-blue" />
 ```
 
 ``` css
-.my-toggle-red {
+.toggle-red {
   --toggle-bg-on: red;
   --toggle-border-on: red;
 }
 
-.my-toggle-blue {
+.toggle-blue {
   --toggle-bg-on: blue;
   --toggle-border-on: blue;
 }
@@ -202,7 +238,7 @@ Or on an instance level:
 
 ## Styling with Tailwind CSS
 
-The `Toggle` component accepts a `classes` property where you can override default class names. In this case you don't need to required `default.css`. Here's a default styling for Tailwind CSS:
+The `Toggle` component accepts a `classes` property which allows to override default class names. When using utility classes you don't need to import `default.css`. Here's a default styling for Tailwind CSS:
 
 ``` vue
 <Toggle v-model="value" :classes="{
@@ -221,15 +257,12 @@ The `Toggle` component accepts a `classes` property where you can override defau
 }" />
 ```
 
-If the button is **enabled** and **on** the `toggle` and `toggleOn` classes will be added to the toggle div:
- ```flex w-12 h-5 rounded-full relative cursor-pointer transition items-center box-content border-2 text-xs leading-none bg-green-500 border-green-500 justify-start text-white```
+Certain classes has different states which are merged to the base class when the state is active. For exmple `handle` will be merged with `handleOn` when the toggle is **on** and **not disabled** resulting in the following classes:
+```inline-block bg-white w-5 h-5 top-0 rounded-full absolute transition-all left-full transform -translate-x-full```
 
-Likewise if the the button is **disabled** and **on** the `toggle` and `toggleOnDisabled` classes will be added:
- ```flex w-12 h-5 rounded-full relative cursor-pointer transition items-center box-content border-2 text-xs leading-none bg-gray-300 border-gray-300 justify-start text-gray-400 cursor-not-allowed```
+The same is true for `toggle`.
 
-The same is true `off` states and `handle`.
-
-This way you can customize the parts of the toggle button without having to worry about over-riding the same type of utility classes, like backgrounds or text colors.
+In case you need to override the same type of utility you might use [@neojp/tailwind-important-variant](https://www.npmjs.com/package/@neojp/tailwindcss-important-variant) and use eg. `bg-green-500!`.
 
 ## Accessibility
 
@@ -261,7 +294,7 @@ Join our [Discord channel](https://discord.gg/WhX2nG6GTQ) or [open an issue](htt
 | **onLabel** | `string` | | The label when toggle is `on`. |
 | **labelledby** | `string` | | The `aria-labelledby` attribute. |
 | **describedby** | `string` | | The `aria-describedby` attribute. |
-| **classes** | `object` | | The object of classes to be applied for different parts of the toggle. Default: `{`<br>&nbsp;&nbsp;`container: 'toggle-container',`<br>&nbsp;&nbsp;`toggle: 'toggle',`<br>&nbsp;&nbsp;`toggleOn: 'toggle-on',`<br>&nbsp;&nbsp;`toggleOff: 'toggle-off',`<br>&nbsp;&nbsp;`toggleOnDisabled: 'toggle-on-disabled',`<br>&nbsp;&nbsp;`toggleOffDisabled: 'toggle-off-disabled',`<br>&nbsp;&nbsp;`handle: 'toggle-handle',`<br>&nbsp;&nbsp;`handleOn: 'toggle-handle-on',`<br>&nbsp;&nbsp;`handleOff: 'toggle-handle-off',`<br>&nbsp;&nbsp;`handleOnDisabled: 'toggle-handle-on-disabled',`<br>&nbsp;&nbsp;`handleOffDisabled: 'toggle-handle-off-disabled',`<br>&nbsp;&nbsp;`label: 'toggle-label',`<br>`}`.<br> The default value can be used with `default.css` and style can be customized with [CSS variables](#styling-with-css-vars). Alternatively this can be overridden with utility classes like [Tailwind CSS](#styling-with-tailwind-css). |
+| **classes** | `object` | | An object of class names that gets merged with the default values. Default: `{`<br>&nbsp;&nbsp;`container: 'toggle-container',`<br>&nbsp;&nbsp;`toggle: 'toggle',`<br>&nbsp;&nbsp;`toggleOn: 'toggle-on',`<br>&nbsp;&nbsp;`toggleOff: 'toggle-off',`<br>&nbsp;&nbsp;`toggleOnDisabled: 'toggle-on-disabled',`<br>&nbsp;&nbsp;`toggleOffDisabled: 'toggle-off-disabled',`<br>&nbsp;&nbsp;`handle: 'toggle-handle',`<br>&nbsp;&nbsp;`handleOn: 'toggle-handle-on',`<br>&nbsp;&nbsp;`handleOff: 'toggle-handle-off',`<br>&nbsp;&nbsp;`handleOnDisabled: 'toggle-handle-on-disabled',`<br>&nbsp;&nbsp;`handleOffDisabled: 'toggle-handle-off-disabled',`<br>&nbsp;&nbsp;`label: 'toggle-label',`<br>`}`.<br> The default value can be used with `default.css` and style can be customized with [CSS variables](#styling-with-css-vars). Alternatively this can be overridden with utility classes like [Tailwind CSS](#styling-with-tailwind-css). |
 
 ## Events
 
