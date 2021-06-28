@@ -2,7 +2,7 @@
   "name": "@vueform/toggle",
   "version": "2.0.0",
   "private": false,
-  "description": "Vue 3 toggle component with Tailwind support.",
+  "description": "Vue 3 toggle component with labels, custom slots and styling options.",
   "license": "MIT",
   "author": "Adam Berecz <adam@vueform.com>",
   "main": "./dist/toggle.js",
