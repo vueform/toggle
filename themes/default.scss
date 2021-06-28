@@ -1,5 +1,10 @@
 .toggle-container {
   display: inline-block;
+
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 0 var(--toggle-ring-width, 3px) var(--toggle-ring-color, #10B98130);
+  }
 }
 
 .toggle {
