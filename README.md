@@ -22,7 +22,7 @@
     <img alt="npm" src="https://img.shields.io/npm/v/@vueform/toggle">
   </a>
 
-  <h1>Vue 3 Toggle with Tailwind support</h1>
+  <h1>Vue 3 Toggle</h1>
   
   <a href="https://vueform.com?ref=github" target="_blank">
     <br>
@@ -48,20 +48,20 @@
 
 ## Other libraries
 
-* [@vueform/multiselect](https://github.com/vueform/multiselect) - Vue 3 multiselect component with tagging options & Tailwind support.
-* [@vueform/slider](https://github.com/vueform/slider) - Vue 3 slider component with tooltips & Tailwind support.
+* [@vueform/multiselect](https://github.com/vueform/multiselect) - Vue 3 multiselect component with single select, multiselect and tagging options.
+* [@vueform/slider](https://github.com/vueform/slider) - Vue 3 slider component with multihandles, tooltips merging and formatting.
 
 ## Toggle features
 
 * Vue 2 & 3 support
-* Tailwind & utility class support
 * No dependencies
 * Lightweight (<2 kB gzipped)
 * 100% coverage
 * TypeScript support
 * Accessibility support
 * ESM support
-* Configrable styles via CSS vars
+* CSS vars support
+* Tailwind & utility class support
 * On / Off labels
 
 ## Demo 
@@ -153,59 +153,27 @@ import Toggle from '@vueform/toggle/dist/toggle.vue2.js'
 The following CSS variables can be used to customize toggle when using `default.css`:
 ``` css
 
---ms-font-size: 1rem
---ms-line-height: 1.375
---ms-bg: #FFFFFF
---ms-bg-disabled: #F3F4F6
---ms-border-color: #D1D5DB
---ms-border-width: 1px
---ms-radius: 4px
---ms-py: 0.5rem
---ms-px: 0.875rem
---ms-ring-width: 3px
---ms-ring-color: #10B98130
---ms-placeholder-color: #9CA3AF
-  
---ms-tag-font-size: 0.875rem
---ms-tag-line-height: 1.25rem
---ms-tag-font-weight: 600
---ms-tag-bg: #10B981
---ms-tag-bg-disabled: #9CA3AF
---ms-tag-color: #FFFFFF
---ms-tag-color-disabled: #FFFFFF
---ms-tag-radius: 4px
---ms-tag-py: 0.125rem
---ms-tag-px: 0.5rem
---ms-tag-my: 0.25rem
---ms-tag-mx: 0.25rem
-
---ms-tag-remove-radius: 4px
---ms-tag-remove-py: 0.25rem
---ms-tag-remove-px: 0.25rem
---ms-tag-remove-my: 0rem
---ms-tag-remove-mx: 0.125rem
-
---ms-dropdown-bg: #FFFFFF
---ms-dropdown-border-color: #D1D5DB
---ms-dropdown-border-width: 1px
---ms-dropdown-radius: 4px
-
---ms-option-font-size: 1rem
---ms-option-line-height: 1.375
---ms-option-bg-pointed: #FFFFFF
---ms-option-bg-selected: #10B981
---ms-option-bg-disabled: #FFFFFF
---ms-option-bg-selected-pointed: #26C08E
---ms-option-bg-selected-disabled: #FFFFFF
---ms-option-color-pointed: #1F2937
---ms-option-color-selected: #FFFFFF
---ms-option-color-disabled: #D1D5DB
---ms-option-color-selected-pointed: #FFFFFF
---ms-option-color-selected-disabled: #D1FAE5
---ms-option-py: 0.5rem
---ms-option-px: 0.75rem
-
---ms-empty-color: #4B5563
+--toggle-width: 3rem;
+--toggle-height: 1.25rem;
+--toggle-border: 0.125rem;
+--toggle-font-size: 0.75rem;
+--toggle-duration: 150ms;
+--toggle-bg-on: #10b981;
+--toggle-bg-off: #e5e7eb;
+--toggle-bg-on-disabled: #d1d5db;
+--toggle-bg-off-disabled: #e5e7eb;
+--toggle-border-on: #10b981;
+--toggle-border-off: #e5e7eb;
+--toggle-border-on-disabled: #d1d5db;
+--toggle-border-off-disabled: #e5e7eb;
+--toggle-ring-width: 3px;
+--toggle-ring-color: #10B98130;
+--toggle-text-on: #ffffff;
+--toggle-text-off: #374151;
+--toggle-text-on-disabled: #9ca3af;
+--toggle-text-off-disabled: #9ca3af;
+--toggle-handle-enabled: #ffffff;
+--toggle-handle-disabled: #f3f4f6;
 ```
 
 Override them globally:
@@ -242,7 +210,7 @@ The `Toggle` component accepts a `classes` property which allows to override def
 
 ``` vue
 <Toggle v-model="value" :classes="{
-  container: 'inline-block',
+  container: 'inline-block rounded-full outline-none focus:ring focus:ring-green-500 focus:ring-opacity-30',
   toggle: 'flex w-12 h-5 rounded-full relative cursor-pointer transition items-center box-content border-2 text-xs leading-none',
   toggleOn: 'bg-green-500 border-green-500 justify-start text-white',
   toggleOff: 'bg-gray-200 border-gray-200 justify-end text-gray-700',
