@@ -1,10 +1,17 @@
-import { ref, computed, toRefs } from 'composition-api'
+import { computed, toRefs } from 'composition-api'
 
 export default function useClasses (props, context, dependencies)
 {
   const refs = toRefs(props)
-  const disabled = refs.disabled.value
-  const classes = {
+  const disabled = refs.disabled
+
+  // ============ DEPENDENCIES ============
+
+  const checked = dependencies.checked
+
+  // ============== COMPUTED ==============
+
+  const classes = computed(() => ({
     container: 'toggle-container',
     toggle: 'toggle',
     toggleOn: 'toggle-on',
@@ -18,30 +25,24 @@ export default function useClasses (props, context, dependencies)
     handleOffDisabled: 'toggle-handle-off-disabled',
     label: 'toggle-label',
     ...refs.classes.value,
-  }
-
-  // ============ DEPENDENCIES ============
-
-  const checked = dependencies.checked
-
-  // ============== COMPUTED ==============
+  }))
 
   const classList = computed(() => {
     return {
-      container: classes.container,
+      container: classes.value.container,
       toggle: [
-        classes.toggle,
-        disabled
-          ? (checked.value ? classes.toggleOnDisabled : classes.toggleOffDisabled)
-          : (checked.value ? classes.toggleOn : classes.toggleOff)
+        classes.value.toggle,
+        disabled.value
+          ? (checked.value ? classes.value.toggleOnDisabled : classes.value.toggleOffDisabled)
+          : (checked.value ? classes.value.toggleOn : classes.value.toggleOff)
       ],
       handle: [
-        classes.handle,
-        disabled
-          ? (checked.value ? classes.handleOnDisabled : classes.handleOffDisabled)
-          : (checked.value ? classes.handleOn : classes.handleOff)
+        classes.value.handle,
+        disabled.value
+          ? (checked.value ? classes.value.handleOnDisabled : classes.value.handleOffDisabled)
+          : (checked.value ? classes.value.handleOn : classes.value.handleOff)
       ],
-      label: classes.label,
+      label: classes.value.label,
     }
   })
 
