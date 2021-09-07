@@ -44,11 +44,11 @@ export default function useValue (props, context, dependencies)
 
   // ================ HOOKS ===============
 
-  if ([null, undefined, false, 0, '0', 'off'].indexOf(externalValue.value) !== -1 && externalValue.value !== falseValue.value) {
+  if ([null, undefined, false, 0, '0', 'off'].indexOf(externalValue.value) !== -1 && [falseValue.value, trueValue.value].indexOf(externalValue.value) === -1) {
     uncheck()
   }
 
-  if ([true, 1, '1', 'on'].indexOf(externalValue.value) !== -1 && externalValue.value !== trueValue.value) {
+  if ([true, 1, '1', 'on'].indexOf(externalValue.value) !== -1 && [falseValue.value, trueValue.value].indexOf(externalValue.value) === -1) {
     check()
   }
 
