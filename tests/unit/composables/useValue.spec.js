@@ -168,6 +168,54 @@ describe('useValue', () => {
       expect(getValue(toggle)).toBe(false)
     })
 
+    it('should not set value to falseValue if v-model is false && true value is false', async () => {
+      const toggle = createToggle({
+        value: false,
+        trueValue: false,
+        falseValue: true,
+      })
+
+      await nextTick()
+
+      expect(toggle.vm.checked).toBe(true)
+    })
+
+    it('should not set value to falseValue if v-model is 0 && true value is 0', async () => {
+      const toggle = createToggle({
+        value: 0,
+        trueValue: 0,
+        falseValue: 1,
+      })
+
+      await nextTick()
+
+      expect(toggle.vm.checked).toBe(true)
+    })
+
+    it('should not set value to falseValue if v-model is \'0\' && true value is \'0\'', async () => {
+      const toggle = createToggle({
+        value: '0',
+        trueValue: '0',
+        falseValue: '1',
+      })
+
+      await nextTick()
+
+      expect(toggle.vm.checked).toBe(true)
+    })
+
+    it('should not set value to falseValue if v-model is \'off\' && true value is \'off\'', async () => {
+      const toggle = createToggle({
+        value: 'off',
+        trueValue: 'off',
+        falseValue: 'on',
+      })
+
+      await nextTick()
+
+      expect(toggle.vm.checked).toBe(true)
+    })
+
     it('should set value to trueValue if v-model is true', async () => {
       const toggle = createToggle({
         value: true,
@@ -210,6 +258,54 @@ describe('useValue', () => {
       await nextTick()
 
       expect(getValue(toggle)).toBe(1)
+    })
+
+    it('should not set value to trueValue if v-model is true && false value is true', async () => {
+      const toggle = createToggle({
+        value: true,
+        trueValue: false,
+        falseValue: true,
+      })
+
+      await nextTick()
+
+      expect(toggle.vm.checked).toBe(false)
+    })
+
+    it('should not set value to trueValue if v-model is 1 && false value is 1', async () => {
+      const toggle = createToggle({
+        value: 1,
+        trueValue: 0,
+        falseValue: 1,
+      })
+
+      await nextTick()
+
+      expect(toggle.vm.checked).toBe(false)
+    })
+
+    it('should not set value to trueValue if v-model is \'1\' && false value is \'1\'', async () => {
+      const toggle = createToggle({
+        value: '1',
+        trueValue: '0',
+        falseValue: '1',
+      })
+
+      await nextTick()
+
+      expect(toggle.vm.checked).toBe(false)
+    })
+
+    it('should not set value to trueValue if v-model is \'on\' && false value is \'on\'', async () => {
+      const toggle = createToggle({
+        value: 'on',
+        trueValue: 'off',
+        falseValue: 'on',
+      })
+
+      await nextTick()
+
+      expect(toggle.vm.checked).toBe(false)
     })
   })
 })
