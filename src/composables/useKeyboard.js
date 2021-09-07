@@ -2,6 +2,8 @@ import { ref, computed, toRefs } from 'composition-api'
 
 export default function useStyle (props, context, dependencies)
 {
+  const { disabled } = toRefs(props)
+
   // ============ DEPENDENCIES ============
 
   const check = dependencies.check
@@ -11,6 +13,10 @@ export default function useStyle (props, context, dependencies)
   // =============== METHODS ==============
 
   const handleSpace = () => {
+    if (disabled.value) {
+      return
+    }
+    
     checked.value ? uncheck() : check()
   }
 

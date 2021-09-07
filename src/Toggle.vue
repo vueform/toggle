@@ -1,7 +1,7 @@
 <template>
   <div
     :class="classList.container"
-    :tabindex="disabled ? -1 : 0"
+    :tabindex="disabled ? undefined : 0"
     :aria-checked="checked"
     :aria-describedby="describedby"
     :aria-labelledby="labelledby"
