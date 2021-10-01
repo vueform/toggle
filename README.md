@@ -172,6 +172,7 @@ The following CSS variables can be used to customize toggle when using `default.
 --toggle-text-off: #374151;
 --toggle-text-on-disabled: #9ca3af;
 --toggle-text-off-disabled: #9ca3af;
+--toggle-handle-size: 20px;
 --toggle-handle-enabled: #ffffff;
 --toggle-handle-disabled: #f3f4f6;
 ```
