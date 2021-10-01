@@ -55,8 +55,8 @@
 .toggle-handle {
   display: inline-block;
   background: var(--toggle-handle-enabled, #ffffff);
-  width: 20px;
-  height: 20px;
+  width: var(--toggle-handle-size, 20px);
+  height: var(--toggle-handle-size, 20px);
   top: 0;
   border-radius: 50%;
   position: absolute;
