@@ -129,7 +129,7 @@ import Toggle from '@vueform/toggle/dist/toggle.vue2.js'
 First you need install [@nuxtjs/composition-api](https://composition-api.nuxtjs.org/getting-started/setup):
 
 ``` bash
-npm i @nuxtjs/composition-api --save-dev
+npm i @nuxtjs/composition-api --save
 ```
 
 Then you need to enable it as a module in `nuxt.config.js`:
@@ -137,16 +137,50 @@ Then you need to enable it as a module in `nuxt.config.js`:
 ``` js
 {
   buildModules: [
-    '@nuxtjs/composition-api'
+    '@nuxtjs/composition-api/module'
   ]
 }
 ```
 
-After that make sure to change the imported module to Vue 2 version of Toggle, as Nuxt.js still depends on that:
+After that make sure to change the imported module to Vue 2 version of Toggle:
 
 ``` js
-import Toggle from '@vueform/toggle/dist/toggle.vue2.js'
+import Toggle from '@vueform/toggle/dist/toggle.vue2'
 ```
+
+For more information on using `@nuxtjs/composition-api` read [their documentation](https://composition-api.nuxtjs.org/).
+
+## Support
+
+Join our [Discord channel](https://discord.gg/WhX2nG6GTQ) or [open an issue](https://github.com/vueform/toggle/issues).
+
+## Basic props
+
+| Name | Type | Default | Description |
+| --- | --- | --- | --- |
+| **id** | `string` | `toggle` | The `id` attribute of input field. Make sure to customize when using more toggles on a single page. |
+| **name** | `string` | `toggle` | The `name` attribute of input field. |
+| **disabled** | `boolean` | `false` | Whether the toggle should be disabled. |
+| **required** | `boolean` | `false` | Whether the HTML5 required attribute should be used for toggle (using an invisible fake input). |
+| **falseValue** | `string\|number\|boolean` | `false` | The value when the toggle is `off`. |
+| **trueValue** | `string\|number\|boolean` | `true` | The value when toggle is `on`. |
+| **offLabel** | `string` | | The label when toggle is `off`. |
+| **onLabel** | `string` | | The label when toggle is `on`. |
+| **labelledby** | `string` | | The `aria-labelledby` attribute. |
+| **describedby** | `string` | | The `aria-describedby` attribute. |
+| **classes** | `object` | | An object of class names that gets merged with the default values. Default: `{`<br>&nbsp;&nbsp;`container: 'toggle-container',`<br>&nbsp;&nbsp;`toggle: 'toggle',`<br>&nbsp;&nbsp;`toggleOn: 'toggle-on',`<br>&nbsp;&nbsp;`toggleOff: 'toggle-off',`<br>&nbsp;&nbsp;`toggleOnDisabled: 'toggle-on-disabled',`<br>&nbsp;&nbsp;`toggleOffDisabled: 'toggle-off-disabled',`<br>&nbsp;&nbsp;`handle: 'toggle-handle',`<br>&nbsp;&nbsp;`handleOn: 'toggle-handle-on',`<br>&nbsp;&nbsp;`handleOff: 'toggle-handle-off',`<br>&nbsp;&nbsp;`handleOnDisabled: 'toggle-handle-on-disabled',`<br>&nbsp;&nbsp;`handleOffDisabled: 'toggle-handle-off-disabled',`<br>&nbsp;&nbsp;`label: 'toggle-label',`<br>`}`.<br> The default value can be used with `default.css` and style can be customized with [CSS variables](#styling-with-css-vars). Alternatively this can be overridden with utility classes like [Tailwind CSS](#styling-with-tailwind-css). |
+
+## Events
+
+| Event | Attributes | Description |
+| --- | --- | --- |
+| **@change** | `value` | Emitted when the toggle changes. |
+
+## Slots
+
+| Slot | Attributes | Description |
+| --- | --- | --- |
+| **label** | `checked`, `classList` | The label of the toggle element. The `checked` attribute determines whether the toggle is *on* or *off* so you can display the label accordingly. The `classList` contains the resolved class names. |
 
 ## Styling with CSS vars
 
@@ -225,7 +259,7 @@ The `Toggle` component accepts a `classes` property which allows to override def
 }" />
 ```
 
-Certain classes has different states which are merged to the base class when the state is active. For exmple `handle` will be merged with `handleOn` when the toggle is **on** and **not disabled** resulting in the following classes:
+Certain classes has different states which are merged to the base class when the state is active. For example `handle` will be merged with `handleOn` when the toggle is **on** and **not disabled** resulting in the following classes:
 ```inline-block bg-white w-5 h-5 top-0 rounded-full absolute transition-all left-full transform -translate-x-full```
 
 The same is true for `toggle`.
@@ -243,38 +277,6 @@ By default the `on` and `off` labels are being read by the screenreaders. If you
 </div>
 <small id="toggle-description">Turn this on if you'd like to receive in-app notifications.</small>
 ```
-
-## Support
-
-Join our [Discord channel](https://discord.gg/WhX2nG6GTQ) or [open an issue](https://github.com/vueform/toggle/issues).
-
-## Basic props
-
-| Name | Type | Default | Description |
-| --- | --- | --- | --- |
-| **id** | `string` | `toggle` | The `id` attribute of input field. Make sure to customize when using more toggles on a single page. |
-| **name** | `string` | `toggle` | The `name` attribute of input field. |
-| **disabled** | `boolean` | `false` | Whether the toggle should be disabled. |
-| **required** | `boolean` | `false` | Whether the HTML5 required attribute should be used for toggle (using an invisible fake input). |
-| **falseValue** | `string\|number\|boolean` | `false` | The value when the toggle is `off`. |
-| **trueValue** | `string\|number\|boolean` | `true` | The value when toggle is `on`. |
-| **offLabel** | `string` | | The label when toggle is `off`. |
-| **onLabel** | `string` | | The label when toggle is `on`. |
-| **labelledby** | `string` | | The `aria-labelledby` attribute. |
-| **describedby** | `string` | | The `aria-describedby` attribute. |
-| **classes** | `object` | | An object of class names that gets merged with the default values. Default: `{`<br>&nbsp;&nbsp;`container: 'toggle-container',`<br>&nbsp;&nbsp;`toggle: 'toggle',`<br>&nbsp;&nbsp;`toggleOn: 'toggle-on',`<br>&nbsp;&nbsp;`toggleOff: 'toggle-off',`<br>&nbsp;&nbsp;`toggleOnDisabled: 'toggle-on-disabled',`<br>&nbsp;&nbsp;`toggleOffDisabled: 'toggle-off-disabled',`<br>&nbsp;&nbsp;`handle: 'toggle-handle',`<br>&nbsp;&nbsp;`handleOn: 'toggle-handle-on',`<br>&nbsp;&nbsp;`handleOff: 'toggle-handle-off',`<br>&nbsp;&nbsp;`handleOnDisabled: 'toggle-handle-on-disabled',`<br>&nbsp;&nbsp;`handleOffDisabled: 'toggle-handle-off-disabled',`<br>&nbsp;&nbsp;`label: 'toggle-label',`<br>`}`.<br> The default value can be used with `default.css` and style can be customized with [CSS variables](#styling-with-css-vars). Alternatively this can be overridden with utility classes like [Tailwind CSS](#styling-with-tailwind-css). |
-
-## Events
-
-| Event | Attributes | Description |
-| --- | --- | --- |
-| **@change** | `value` | Emitted when the toggle changes. |
-
-## Slots
-
-| Slot | Attributes | Description |
-| --- | --- | --- |
-| **label** | `checked`, `classList` | The label of the toggle element. The `checked` attribute determines whether the toggle is *on* or *off* so you can display the label accordingly. The `classList` contains the resolved class names. |
 
 ## Examples
 
