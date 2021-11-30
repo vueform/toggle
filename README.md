@@ -1,5 +1,7 @@
 <div align="center">
-  <img align="center" src="https://github.com/vueform/toggle/raw/main/assets/vueform-gh.png">
+  <a href="https://vueform.com?ref=ghb">
+    <img align="center" src="https://github.com/vueform/toggle/raw/main/assets/vueform-gh.png" alt="Vueform" title="Vueform">
+  </a>
 
   <br>
   <br>
@@ -344,7 +346,6 @@ Vueform is a comprehensive form builder for Vue.js that makes form development a
 Vueform pre-release is open for registration for the first 100 developers.
 
 Learn more: [https://vueform.com](https://vueform.com)
-
 
 ## License
 
