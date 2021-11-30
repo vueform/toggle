@@ -1,5 +1,5 @@
 <div align="center">
-  <img align="center" src="https://github.com/vueform/toggle/raw/main/assets/vueform-gh.png">
+  <img align="center" width="675" src="https://github.com/vueform/toggle/raw/main/assets/vueform-gh.png">
 
   <br>
   <br>
