@@ -49,7 +49,7 @@
 ## About Vueform
 
 <a href="https://vueform.com?ref=ghb">
-  <img align="center" src="https://github.com/vueform/toggle/raw/main/assets/vueform-gh.png" alt="Vueform" title="Vueform">
+  <img align="center" src="https://github.com/vueform/toggle/raw/main/assets/vueform-gh.png?1" alt="Vueform" title="Vueform">
 </a>
 
 <br>
@@ -179,7 +179,7 @@ Join our [Discord channel](https://discord.gg/WhX2nG6GTQ) or [open an issue](htt
 
 
 <a href="https://vueform.com?ref=ghb">
-  <img align="center" src="https://github.com/vueform/toggle/raw/main/assets/vueform-gh.png" alt="Vueform" title="Vueform">
+  <img align="center" src="https://github.com/vueform/toggle/raw/main/assets/vueform-gh.png?1" alt="Vueform" title="Vueform">
 </a>
 
 ## Basic props
