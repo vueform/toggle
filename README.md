@@ -1,10 +1,4 @@
 <div align="center">
-  <a href="https://vueform.com?ref=ghb">
-    <img align="center" src="https://github.com/vueform/toggle/raw/main/assets/vueform-gh.png" alt="Vueform" title="Vueform">
-  </a>
-
-  <br>
-  <br>
 
   <a href="https://www.npmjs.com/package/@vueform/toggle" target="_blank">
     <img alt="npm" src="https://img.shields.io/npm/dm/@vueform/toggle?color=%2353ca2f">
@@ -51,6 +45,29 @@
 <div align="center"><br>
   <a href="https://vueform.com?ref=github"><img src="https://github.com/vueform/toggle/raw/main/assets/logo-horizontal.svg" width="200"></a>
 </div>
+
+## About Vueform
+
+<a href="https://vueform.com?ref=ghb">
+  <img align="center" src="https://github.com/vueform/toggle/raw/main/assets/vueform-gh.png" alt="Vueform" title="Vueform">
+</a>
+
+<br>
+<br>
+
+Vueform is a comprehensive form builder for Vue.js that makes form development a breeze. It standardizes and handles the entire form building process, including:
+- a complete theming and templating system with **Tailwind support** (similar to @vueform libraries)
+- 25+ form elements with **multi-file uploads**, date pickers and rich text editor
+- element **nesting** and **repeating**
+- **50+ validators** with async, dependent and custom rules
+- **conditional logic** on element & form level
+- breaking forms into **steps** with **form wizard**
+- **dynamic** form rendering with **JSON** support
+- **translating** form content and global i18n support.
+
+Vueform pre-release is open for registration for the **first 100 developers** with **special discounts**.
+
+Learn more: [https://vueform.com](https://vueform.com)
 
 ## Other libraries
 
@@ -159,6 +176,11 @@ For more information on using `@nuxtjs/composition-api` read [their documentatio
 ## Support
 
 Join our [Discord channel](https://discord.gg/WhX2nG6GTQ) or [open an issue](https://github.com/vueform/toggle/issues).
+
+
+<a href="https://vueform.com?ref=ghb">
+  <img align="center" src="https://github.com/vueform/toggle/raw/main/assets/vueform-gh.png" alt="Vueform" title="Vueform">
+</a>
 
 ## Basic props
 
@@ -338,14 +360,6 @@ By default the `on` and `off` labels are being read by the screenreaders. If you
 ```
 
 [JSFiddle - Example #4](https://jsfiddle.net/4ckev9rx/1/)
-
-## About Vueform
-
-Vueform is a comprehensive form builder for Vue.js that makes form development a breeze. It supercharges and standardizes the entire form building process and takes care of everything from rendering to validation and processing.
-
-Vueform pre-release is open for registration for the first 100 developers.
-
-Learn more: [https://vueform.com](https://vueform.com)
 
 ## License
 
