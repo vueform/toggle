@@ -49,7 +49,7 @@
 ## About Vueform
 
 <a href="https://vueform.com?ref=ghb">
-  <img align="center" src="https://github.com/vueform/toggle/raw/main/assets/vueform-banner.png" alt="Vueform" title="Vueform">
+  <img align="center" src="https://github.com/vueform/multiselect/raw/main/assets/vueform-banner.png" alt="Vueform" title="Vueform">
 </a>
 
 <br>
@@ -177,9 +177,8 @@ For more information on using `@nuxtjs/composition-api` read [their documentatio
 
 Join our [Discord channel](https://discord.gg/WhX2nG6GTQ) or [open an issue](https://github.com/vueform/toggle/issues).
 
-
 <a href="https://vueform.com?ref=ghb">
-  <img align="center" src="https://github.com/vueform/toggle/raw/main/assets/vueform-banner.png" alt="Vueform" title="Vueform">
+  <img align="center" src="https://github.com/vueform/multiselect/raw/main/assets/vueform-banner.png" alt="Vueform" title="Vueform">
 </a>
 
 ## Basic props
