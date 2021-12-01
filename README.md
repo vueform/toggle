@@ -177,10 +177,6 @@ For more information on using `@nuxtjs/composition-api` read [their documentatio
 
 Join our [Discord channel](https://discord.gg/WhX2nG6GTQ) or [open an issue](https://github.com/vueform/toggle/issues).
 
-<a href="https://vueform.com?ref=ghb">
-  <img align="center" src="https://github.com/vueform/multiselect/raw/main/assets/vueform-banner.png" alt="Vueform" title="Vueform">
-</a>
-
 ## Basic props
 
 | Name | Type | Default | Description |
@@ -196,6 +192,10 @@ Join our [Discord channel](https://discord.gg/WhX2nG6GTQ) or [open an issue](htt
 | **labelledby** | `string` | | The `aria-labelledby` attribute. |
 | **describedby** | `string` | | The `aria-describedby` attribute. |
 | **classes** | `object` | | An object of class names that gets merged with the default values. Default: `{`<br>&nbsp;&nbsp;`container: 'toggle-container',`<br>&nbsp;&nbsp;`toggle: 'toggle',`<br>&nbsp;&nbsp;`toggleOn: 'toggle-on',`<br>&nbsp;&nbsp;`toggleOff: 'toggle-off',`<br>&nbsp;&nbsp;`toggleOnDisabled: 'toggle-on-disabled',`<br>&nbsp;&nbsp;`toggleOffDisabled: 'toggle-off-disabled',`<br>&nbsp;&nbsp;`handle: 'toggle-handle',`<br>&nbsp;&nbsp;`handleOn: 'toggle-handle-on',`<br>&nbsp;&nbsp;`handleOff: 'toggle-handle-off',`<br>&nbsp;&nbsp;`handleOnDisabled: 'toggle-handle-on-disabled',`<br>&nbsp;&nbsp;`handleOffDisabled: 'toggle-handle-off-disabled',`<br>&nbsp;&nbsp;`label: 'toggle-label',`<br>`}`.<br> The default value can be used with `default.css` and style can be customized with [CSS variables](#styling-with-css-vars). Alternatively this can be overridden with utility classes like [Tailwind CSS](#styling-with-tailwind-css). |
+
+<a href="https://vueform.com?ref=ghb">
+  <img align="center" src="https://github.com/vueform/multiselect/raw/main/assets/vueform-banner.png" alt="Vueform" title="Vueform">
+</a>
 
 ## Events
 
