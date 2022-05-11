@@ -1,3 +1,10 @@
+## v2.0.2
+
+> `2022-05-11`
+
+### 🎉 Features
+  - Toggle height based on CSS var.
+
 ## v2.0.1
 
 > `2021-09-07`
