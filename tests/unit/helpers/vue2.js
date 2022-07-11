@@ -1,10 +1,8 @@
 import { mount, createLocalVue } from '@vue/test-utils'
-import CompositionApi from 'composition-api'
 import Toggle from './../../../src/Toggle'
 
 export const createToggle = (props = {}, options = {}) => {
   const localVue = createLocalVue()
-  localVue.use(CompositionApi)
 
   let config = {
     localVue,

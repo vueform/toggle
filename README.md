@@ -126,52 +126,34 @@ npm install @vueform/toggle
 
 ## Using with Vue 2
 
-When using Vue 2 install [@vue/composition-api](https://github.com/vuejs/composition-api#npm) via npm/yarn first:
+``` vue
+<template>
+  <div>
+    <Toggle v-model="value" />
+  </div>
+</template>
 
-``` bash
-npm i @vue/composition-api --save-dev
+<script>
+  import Toggle from '@vueform/toggle/toggle.vue2.js'
+
+  export default {
+    components: {
+      Toggle,
+    },
+    data() {
+      return {
+        value: true
+      }
+    }
+  }
+</script>
+
+<style src="@vueform/toggle/themes/default.css"></style>
 ```
 
-Then install the plugin for Vue:
+#### Using with < Vue 2.7
 
-``` js
-import Vue from 'vue'
-import VueCompositionAPI from '@vue/composition-api'
-
-Vue.use(VueCompositionAPI)
-```
-
-After that make sure to change the imported Toggle module to:
-
-``` js
-import Toggle from '@vueform/toggle/dist/toggle.vue2.js'
-```
-
-## Using with Nuxt.js
-
-First you need install [@nuxtjs/composition-api](https://composition-api.nuxtjs.org/getting-started/setup):
-
-``` bash
-npm i @nuxtjs/composition-api --save
-```
-
-Then you need to enable it as a module in `nuxt.config.js`:
-
-``` js
-{
-  buildModules: [
-    '@nuxtjs/composition-api/module'
-  ]
-}
-```
-
-After that make sure to change the imported module to Vue 2 version of Toggle:
-
-``` js
-import Toggle from '@vueform/toggle/dist/toggle.vue2'
-```
-
-For more information on using `@nuxtjs/composition-api` read [their documentation](https://composition-api.nuxtjs.org/).
+Switch to [`<= 2.0.2`](https://github.com/vueform/toggle/tree/2.0.2) to use the Toggle with Vue.js `< 2.7`.
 
 ## Support
 

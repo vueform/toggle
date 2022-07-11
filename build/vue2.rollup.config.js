@@ -14,7 +14,7 @@ export default [
       vue(),
       alias({
         entries: [
-          { find: 'composition-api', replacement: '@vue/composition-api' },
+          { find: 'composition-api', replacement: 'vue' },
         ]
       }),
       babel({
@@ -23,7 +23,7 @@ export default [
       }),
       terser(),
     ],
-    external: ['@vue/composition-api'],
+    external: ['vue'],
   },
   {
     input: 'src/Toggle.vue',
@@ -32,7 +32,7 @@ export default [
       format: 'iife',
       name: 'VueformToggle',
       globals: {
-        'composition-api': 'VueCompositionAPI',
+        'composition-api': 'Vue',
         'vue': 'Vue',
       }
     },

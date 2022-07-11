@@ -5,7 +5,7 @@ export default function useValue (props, context, dependencies)
   const { value, modelValue, falseValue, trueValue, disabled } = toRefs(props)
 
   /* istanbul ignore next */
-  const externalValue = context.expose !== undefined ? modelValue : value
+  const externalValue = modelValue && modelValue.value !== undefined ? modelValue : value
 
   // ============== COMPUTED ==============
 
