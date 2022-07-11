@@ -1,5 +1,4 @@
 import vue from 'vue-prev-rollup-plugin-vue'
-import alias from '@rollup/plugin-alias'
 import babel from '@rollup/plugin-babel'
 import { terser } from 'rollup-plugin-terser'
 
@@ -12,11 +11,6 @@ export default [
     },
     plugins: [
       vue(),
-      alias({
-        entries: [
-          { find: 'composition-api', replacement: 'vue' },
-        ]
-      }),
       babel({
         babelHelpers: 'runtime',
         skipPreflightCheck: true,
@@ -32,7 +26,6 @@ export default [
       format: 'iife',
       name: 'VueformToggle',
       globals: {
-        'composition-api': 'Vue',
         'vue': 'Vue',
       }
     },
@@ -43,6 +36,6 @@ export default [
       }),
       terser()
     ],
-    external: ['composition-api', 'vue'],
+    external: ['vue'],
   }
 ]

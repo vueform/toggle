@@ -1,5 +1,5 @@
 import { createToggle, keyup } from 'unit-test-helpers'
-import { nextTick } from 'composition-api'
+import { nextTick } from 'vue'
 
 describe('useKeyboard', () => {
   describe('handleSpace', () => {
