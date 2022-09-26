@@ -80,3 +80,7 @@ const keyEvent = (event, wrapper, key) => {
 export const keyup = (wrapper, key) => {
   keyEvent('keyup', wrapper, key)
 }
+
+export const keypress = (wrapper, key) => {
+  keyEvent('keypress', wrapper, key)
+}

@@ -6,7 +6,8 @@
     :aria-describedby="describedby"
     :aria-labelledby="labelledby"
     role="switch"
-    @keyup.space="handleSpace"
+    v-bind="aria"
+    @keypress.space.prevent="handleSpace"
   >
     <input
       v-show="false"
@@ -125,6 +126,11 @@
       describedby: {
         type: String,
         required: false,
+      },
+      aria: {
+        required: false,
+        type: Object,
+        default: () => ({}),
       },
     },
     setup(props, context)

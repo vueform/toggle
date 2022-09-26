@@ -14,6 +14,7 @@ declare class Toggle extends Vue {
     labelledby?: string;
     describedby?: string;
     classes?: object;
+    aria?: object;
 
     $emit(eventName: 'change', e: {originalEvent: Event, value: any}): this;
 

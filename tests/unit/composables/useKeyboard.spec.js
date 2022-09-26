@@ -1,4 +1,4 @@
-import { createToggle, keyup } from 'unit-test-helpers'
+import { createToggle, keypress } from 'unit-test-helpers'
 import { nextTick } from 'vue'
 
 describe('useKeyboard', () => {
@@ -8,7 +8,7 @@ describe('useKeyboard', () => {
         value: false,
       })
 
-      keyup(toggle, 'space')
+      keypress(toggle, 'space')
 
       await nextTick()
 
@@ -20,7 +20,7 @@ describe('useKeyboard', () => {
         value: true,
       })
 
-      keyup(toggle, 'space')
+      keypress(toggle, 'space')
 
       await nextTick()
 
@@ -33,7 +33,7 @@ describe('useKeyboard', () => {
         disabled: true
       })
 
-      keyup(toggle, 'space')
+      keypress(toggle, 'space')
 
       await nextTick()
 
@@ -46,7 +46,7 @@ describe('useKeyboard', () => {
         disabled: true
       })
 
-      keyup(toggle, 'space')
+      keypress(toggle, 'space')
 
       await nextTick()
 
