@@ -89,7 +89,7 @@ Learn more: [https://vueform.com](https://vueform.com)
 
 ## Demo 
 
-Check out our [demo](https://jsfiddle.net/4ckev9rx/1/).
+Check out our [demo](https://jsfiddle.net/m2hvw7o8/).
 
 ## Installation
 
@@ -303,7 +303,7 @@ By default the `on` and `off` labels are being read by the screenreaders. If you
 />
 ```
 
-[JSFiddle - Example #1](https://jsfiddle.net/4ckev9rx/1/)
+[JSFiddle - Example #1](https://jsfiddle.net/m2hvw7o8/)
 
 ### Toggle with labels
 
@@ -315,7 +315,7 @@ By default the `on` and `off` labels are being read by the screenreaders. If you
 />
 ```
 
-[JSFiddle - Example #2](https://jsfiddle.net/4ckev9rx/1/)
+[JSFiddle - Example #2](https://jsfiddle.net/m2hvw7o8/)
 
 ### Toggle with custom value
 
@@ -327,7 +327,7 @@ By default the `on` and `off` labels are being read by the screenreaders. If you
 />
 ```
 
-[JSFiddle - Example #3](https://jsfiddle.net/4ckev9rx/1/)
+[JSFiddle - Example #3](https://jsfiddle.net/m2hvw7o8/)
 
 ### Toggle with custom labels
 
@@ -341,7 +341,7 @@ By default the `on` and `off` labels are being read by the screenreaders. If you
 </Toggle>
 ```
 
-[JSFiddle - Example #4](https://jsfiddle.net/4ckev9rx/1/)
+[JSFiddle - Example #4](https://jsfiddle.net/m2hvw7o8/)
 
 ## License
 
