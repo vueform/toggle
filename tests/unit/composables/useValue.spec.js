@@ -307,5 +307,52 @@ describe('useValue', () => {
 
       expect(toggle.vm.checked).toBe(false)
     })
+
+    it('should trigger change event if value is falsy and falseValue is different than value', async () => {
+      const toggle = createToggle({
+        value: false,
+        falseValue: 'off',
+      })
+
+      await nextTick()
+
+      expect(toggle.emitted().change[0]).toEqual(['off'])
+    })
+
+    it('should trigger change event if value is truthy and trueValue is different than value', async () => {
+      const toggle = createToggle({
+        value: true,
+        falseValue: 'off',
+        trueValue: 'on',
+      })
+
+      await nextTick()
+
+      expect(toggle.emitted().change[0]).toEqual(['on'])
+    })
+
+    it('should not trigger change event if value is falsy and falseValue is same than value', async () => {
+      const toggle = createToggle({
+        value: 'off',
+        falseValue: 'off',
+        trueValue: 'on',
+      })
+
+      await nextTick()
+
+      expect(toggle.emitted().change).toBeFalsy()
+    })
+
+    it('should not trigger change event if value is falsy and trueValue is same than value', async () => {
+      const toggle = createToggle({
+        value: 'on',
+        falseValue: 'off',
+        trueValue: 'on',
+      })
+
+      await nextTick()
+
+      expect(toggle.emitted().change).toBeFalsy()
+    })
   })
 })
