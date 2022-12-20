@@ -1,4 +1,4 @@
-import { toRefs, ref, computed, onMounted } from 'vue'
+import { toRefs, computed } from 'vue'
 
 export default function useValue (props, context, dependencies)
 {
@@ -6,10 +6,6 @@ export default function useValue (props, context, dependencies)
 
   /* istanbul ignore next */
   const externalValue = modelValue && modelValue.value !== undefined ? modelValue : value
-
-  // ================ DATA ================
-
-  const mounted = ref(false)
 
   // ============== COMPUTED ==============
 
@@ -21,10 +17,6 @@ export default function useValue (props, context, dependencies)
 
   // no export
   const update = (val) => {
-    if (!mounted.value) {
-      return
-    }
-
     context.emit('input', val)
     context.emit('update:modelValue', val)
     context.emit('change', val)
@@ -59,10 +51,6 @@ export default function useValue (props, context, dependencies)
   if ([true, 1, '1', 'on'].indexOf(externalValue.value) !== -1 && [falseValue.value, trueValue.value].indexOf(externalValue.value) === -1) {
     check()
   }
-
-  onMounted(() => {
-    mounted.value = true
-  })
 
   return {
     externalValue,
