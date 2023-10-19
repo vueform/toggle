@@ -24,7 +24,7 @@
 
   <h1>Vue 3 Toggle</h1>
   
-  <a href="https://vueform.com?ref=github" target="_blank">
+  <a href="https://vueform.com?cid=toggle" target="_blank">
     <br>
     <img align="center" src="https://github.com/vueform/toggle/raw/main/assets/logo.svg" width="110">
     <br>
@@ -43,7 +43,7 @@
 ## Sponsors
 
 <div align="center"><br>
-  <a href="https://vueform.com?ref=github"><img src="https://github.com/vueform/toggle/raw/main/assets/logo-horizontal.svg" width="200"></a>
+  <a href="https://vueform.com?cid=toggle"><img src="https://github.com/vueform/toggle/raw/main/assets/logo-horizontal.svg" width="200"></a>
 </div>
 
 ## About Vueform
